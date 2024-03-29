@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# Todo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple Todo application built with React and Redux.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To run this project locally, follow these steps:
 
-### `npm start`
+1. Clone the repository:
+```bash
+git clone https://github.com/MG-9205/MH_BLOGS.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Start the development server:
+```bash
+ npm run start
+```
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Dependencies
 
-### `npm run build`
+- @reduxjs/toolkit: ^2.2.2
+- @testing-library/jest-dom: ^5.17.0
+- @testing-library/react: ^13.4.0
+- @testing-library/user-event: ^13.5.0
+- react: ^18.2.0
+- react-dom: ^18.2.0
+- react-redux: ^9.1.0
+- react-router-dom: ^6.21.3
+- react-scripts: 5.0.1
+- web-vitals: ^2.1.4
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+.src/
+    .app/
+        .store.js
+    .components/
+        .MainComponent.js
+        .Pending.js
+        .Complete.js
+        .Total.js
+    .features/
+        .todoSilice.js
+.App.css
+.App.js
+.index.css
+.index.js
+.public/
+    .index.html
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Redux Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The `todoSilice.js` file defines the Redux slice for managing todos. It includes initial state, reducers for adding, removing, and updating todos.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## React Components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **MainComponent**: The main component of the application. It includes routing and displays different components based on the current URL.
+- **Pending**: Displays pending tasks with an option to mark them as completed.
+- **Complete**: Displays completed tasks.
+- **Total**: Displays all tasks with an option to delete them.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+- Users can add new tasks using the input field and the "Add" button.
+- They can mark tasks as completed by checking the checkboxes next to each task.
+- They can view pending or completed tasks by navigating to the respective routes.
+- They can delete tasks by clicking the delete icon next to each task.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Scripts
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm start`: Start the development server.
+- `npm run build`: Build the project for production.
+- `npm test`: Run tests.
+- `npm run eject`: Eject from create-react-app for advanced configuration.
 
-### Code Splitting
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Contributions are welcome! Please follow the standard coding conventions and open a pull request for any bug fixes or feature enhancements.
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MH CODERS License 

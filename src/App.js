@@ -1,15 +1,15 @@
-
-import './App.css';
-import MainComponent from './components/MainComponent';
-import TodoState from './context/TodoState';
-import { BrowserRouter } from 'react-router-dom';
+import "./App.css";
+import MainComponent from "./components/MainComponent";
+import { Provider } from "react-redux";
+import { store } from "../src/app/store";
 
 function App() {
   return (
     <>
-    <TodoState>
-      <MainComponent/>
-    </TodoState>
+     {/* Providing the Redux store to the entire application using the Provider */}
+      <Provider store={store}>
+        <MainComponent />
+      </Provider>
     </>
   );
 }

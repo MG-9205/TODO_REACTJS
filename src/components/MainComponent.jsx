@@ -1,33 +1,29 @@
-import React, { useRef } from "react";
-import { useContext } from "react";
-import TodoContext from "../context/Todocontext";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   NavLink,
-  Route
+  Route,
 } from "react-router-dom";
 import "../App.css";
 import Complete from "./Complete";
 import Pending from "./Pending";
 import Total from "./Total";
+import { useDispatch, useSelector } from "react-redux";
+import { addtodo } from "../features/todoSilice";
 
 export default function MainComponent() {
-  const Todo = useContext(TodoContext);
-  const Input_ref = useRef(null);
+  // Selecting count from the Redux store
+  const count = useSelector((state) => state.count);
+  const [input, setinput] = useState("");
+  const dispatch = useDispatch();
+    // Function to add a new task
   const Add_task = () => {
-    const input = Input_ref.current.value;
     if (input == false) {
-      alert("please enter a value");
+      alert("please enter a value");// Alert if input is empty
     } else {
-      const Task = {
-        Task: input,
-        status: "Pending",
-      };
-      Todo.Todo.push(Task)
-      Todo.Update()
-      Input_ref.current.value = ""
-
+      dispatch(addtodo(input));// Dispatching addtodo action with input task
+      setinput("");
     }
   };
 
@@ -46,7 +42,8 @@ export default function MainComponent() {
                   type="text"
                   id="input"
                   placeholder="Add New Task"
-                  ref={Input_ref}
+                  value={input}
+                  onChange={(e) => setinput(e.target.value)}
                 />
                 <button id="add-task" onClick={Add_task}>
                   ADD
@@ -61,17 +58,17 @@ export default function MainComponent() {
                     `Link ${isActive ? "active" : ""}`
                   }
                 >
-                  All  ({Todo.Counter.total})
+                  All ({count.total})
                 </NavLink>
               </button>
               <button id="pending">
                 <NavLink
                   to="/Pending"
                   className={({ isActive }) =>
-                  `Link ${isActive ? "active" : ""}`
-                }
+                    `Link ${isActive ? "active" : ""}`
+                  }
                 >
-                  Pending  ({Todo.Counter.Pending})
+                  Pending ({count.Pending})
                 </NavLink>
               </button>
               <button id="completed">
@@ -81,10 +78,11 @@ export default function MainComponent() {
                     `Link ${isActive ? "active" : ""}`
                   }
                 >
-                  Completed  ({Todo.Counter.completed})
+                  Completed ({count.completed})
                 </NavLink>
               </button>
             </div>
+             {/* Routing for different task lists */}
             <Routes>
               <Route exact path="/" element={<Total />}></Route>
               <Route exact path="/Pending" element={<Pending />}></Route>

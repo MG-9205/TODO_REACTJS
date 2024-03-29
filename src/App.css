@@ -122,3 +122,9 @@ height: 40px;
   padding: 5px 5px;
   border-radius: 5px;
 }
+@media screen and (max-width:800px) {
+  .container1{
+    width: 94vw;
+
+  }
+}
